@@ -1,0 +1,22 @@
+<div class=" farmer-action-page container-fluid">
+	<div class="row">
+		<div class="col-sm-8 col-md-7">
+			<%= render "farmer_details_table" %>
+		</div>
+		<div class="col-sm-4 col-md-5">
+			<div class="farmer-action-head-padding jumbotron">
+				<% if @farmer_action[:action] == "edit" %>
+				<p class="h4 text-center farmer-details-head">Edit Farmer</p>
+				<% else %>
+				<p class="h4 text-center farmer-details-head">Add New Farmer</p>
+				<% end %>
+				<hr>
+				<% if @farmer_action[:action] == "edit" %>
+				<%= render "edit_farmar" %>
+				<% else %>
+				<%= render "add_new_farmar" %>
+				<% end %>	
+			</div>
+		</div>
+	</div>
+</div>

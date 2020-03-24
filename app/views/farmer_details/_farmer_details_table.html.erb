@@ -1,0 +1,29 @@
+<div class="table-farmer-head-padding jumbotron jumbotron-heading">
+  <p class="h4 farmer-details-head text-center">Farmer Details</p>
+  <div class="table-responsive-sm table-hover">
+    <table class="table">
+      <tr>
+        <th>Farmar Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+      <% unless @farmars.nil? %>
+      <% @farmars.each do |f| %>
+      <tr>
+        <td><%= f.farmar_full_name %></td>
+        <td><%= f.phone_number %></td>
+        <td><%= f.address%></td>
+        <td>
+          <%= link_to "Edit", farmer_details_path(:edit_farmar_detail => { farmar: f}) %> 
+          <%= link_to "Delete", { controller: "farmer_details", action: "destroy", id: f.id}, method: :delete, data: { confirm: "Are you sure for delete Farmar ?"} %></td>
+        </tr>
+        <% end %>
+        <% end %> 
+      </table>
+    </div>
+    <hr>
+    <div class="pagination justify-content-end pagy-style">
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+  </div>
