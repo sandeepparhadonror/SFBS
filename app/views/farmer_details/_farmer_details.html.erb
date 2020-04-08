@@ -1,0 +1,28 @@
+	<div class="row">
+		<strong> Full Name :  </strong>
+		<p class="font-italic"><%= @farmer.farmar_full_name %></p>
+	</div>
+	
+	<div class="row">
+		<strong> Phone Number:  </strong>
+		<p class="font-italic"><%= @farmer.phone_number %></p>
+	</div>
+
+	<div class="row">
+		<strong> Village Name: </strong>
+		<p class="font-italic"><%= @farmer.address %></p>
+	</div>
+
+	<div class="row">
+		<strong> Transportation Name :  </strong>
+		<p class="font-italic"><%= @farmer.transportation_vehicle %></p>
+	</div>
+
+	<div class="row">
+		<strong> Email Address :  </strong>
+		<p class="font-italic"><%= @farmer.email %></p>
+	</div>
+
+	<div class="row">
+		<%= link_to "Back", farmer_details_path, class: "btn btn-primary" %>
+	</div>

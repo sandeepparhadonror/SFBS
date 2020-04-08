@@ -39,7 +39,7 @@
 <div class="form-group row mb-0">
 	<div class="col-sm-9 offset-sm-3">
 		<%= f.button :submit, "Edit Farmer",  class: "btn btn-success" %>
-		<%= f.button :button, "Cancel", class: "btn btn-primary" %>
+		<%= link_to "Cancel", farmer_details_path, class: "btn btn-primary" %>
 	</div>
 </div>
 <% end %>
