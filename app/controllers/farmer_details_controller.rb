@@ -1,18 +1,15 @@
 class FarmerDetailsController < ApplicationController
 
-	before_action :set_farmer, only: [:update, :destroy]
+	before_action :set_farmer, only: [:show, :edit, :update, :destroy]
 
 	def index
-		if params[:edit_farmar_detail]
-			@farmer = FarmerDetail.find(params[:edit_farmar_detail][:farmar])
-			@pagy, @farmars = pagy(FarmerDetail.all.order(created_at: :desc), items: 6)
-			@farmer_action = {action: "edit"}
-		else
-			@farmer = FarmerDetail.new
-			@pagy, @farmars = pagy(FarmerDetail.all.order(created_at: :desc), items: 6)
-			@farmer_action = {action: "new"}
-		end	
+		@farmer = FarmerDetail.new
+		@pagy, @farmars = pagy(FarmerDetail.all.order(created_at: :desc), items: 6)
+		@farmer_action = {action: "new"}
 	end
+
+  def show
+  end 
 
 	def create
 		@farmer = FarmerDetail.new(farmar_deatils_params)
@@ -23,8 +20,13 @@ class FarmerDetailsController < ApplicationController
 			@farmer_action = {action: "new"}
 			@pagy, @farmars = pagy(FarmerDetail.all.order(created_at: :desc), items: 6)
 			render 'index'
-		end	
+		end
 	end 
+
+	def edit
+		@pagy, @farmars = pagy(FarmerDetail.all.order(created_at: :desc), items: 6)
+		@farmer_action = {action: "edit"}
+	end
 
 	def update
 		if @farmer.update(farmar_deatils_params)

@@ -15,7 +15,8 @@
         <td><%= f.phone_number %></td>
         <td><%= f.address%></td>
         <td>
-          <%= link_to "Edit", farmer_details_path(:edit_farmar_detail => { farmar: f}) %> 
+          <%= link_to "Show", farmer_detail_path(f) %>
+          <%= link_to "Edit", edit_farmer_detail_path(f) %> 
           <%= link_to "Delete", { controller: "farmer_details", action: "destroy", id: f.id}, method: :delete, data: { confirm: "Are you sure for delete Farmar ?"} %></td>
         </tr>
         <% end %>
